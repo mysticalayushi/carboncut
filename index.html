@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carbon Footprint Smart Advisor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>🌱 Carbon Footprint Smart Advisor</h1>
+
+        <label>Transport Method</label>
+        <select id="transport">
+            <option value="car">Car</option>
+            <option value="bus">Bus</option>
+            <option value="metro">Metro</option>
+            <option value="bike">Bike</option>
+        </select>
+
+        <label>Daily Distance (km)</label>
+        <input type="number" id="distance">
+
+        <label>AC Usage (hours/day)</label>
+        <input type="number" id="ac">
+
+        <label>Diet Type</label>
+        <select id="diet">
+            <option value="veg">Vegetarian</option>
+            <option value="mixed">Mixed</option>
+            <option value="meat">Meat Heavy</option>
+        </select>
+
+        <button onclick="calculateFootprint()">
+            Calculate
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
