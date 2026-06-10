@@ -196,6 +196,78 @@
 | Input Validation          | ✅      |
 | Responsive Design         | ✅      |
 
+# Additional Testing Strategy
+
+## Functional Testing
+
+The following functionality was verified:
+
+* Carbon score calculation accuracy
+* Eco rating classification
+* Recommendation generation
+* Goal tracking calculations
+* Local Storage persistence
+* Carbon history updates
+* Chart rendering and updates
+
+## Boundary Testing
+
+| Input           | Expected Result        | Status |
+| --------------- | ---------------------- | ------ |
+| Distance = 0    | Valid calculation      | ✅      |
+| Distance = 1000 | Maximum accepted value | ✅      |
+| AC Usage = 0    | Valid calculation      | ✅      |
+| AC Usage = 24   | Maximum accepted value | ✅      |
+
+## Invalid Input Testing
+
+| Input            | Expected Result  | Status |
+| ---------------- | ---------------- | ------ |
+| Distance = -10   | Validation error | ✅      |
+| AC Usage = -5    | Validation error | ✅      |
+| Distance = "abc" | Validation error | ✅      |
+| Goal = -50       | Validation error | ✅      |
+
+## Performance Testing
+
+* Tested with 20 historical entries stored in Local Storage.
+* Chart rendering remains responsive.
+* No noticeable UI lag during repeated calculations.
+
+Status: ✅ Pass
+
+## Accessibility Testing
+
+Verified:
+
+* Form labels associated with inputs
+* Keyboard navigation support
+* Visible focus states
+* Color contrast compliance
+* Responsive layout
+
+Status: ✅ Pass
+
+## Browser Compatibility
+
+| Browser | Status |
+| ------- | ------ |
+| Chrome  | ✅      |
+| Edge    | ✅      |
+| Firefox | ✅      |
+
+## Security Testing
+
+Verified:
+
+* Input validation prevents invalid values.
+* Local Storage data handled safely.
+* Numeric conversion applied before calculations.
+* No external user-generated code execution.
+
+Status: ✅ Pass
+
+
 ## Conclusion
 
 All major CarbonCut functionalities were tested successfully. The application correctly calculates carbon footprint scores, generates personalized recommendations, tracks user progress, stores historical data, and visualizes trends through interactive charts while maintaining usability across different screen sizes.

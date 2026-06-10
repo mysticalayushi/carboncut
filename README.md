@@ -230,6 +230,139 @@ The user receives:
 
 ---
 
+# 🧪 Testing & Quality Assurance
+
+CarbonCut was thoroughly tested to ensure accuracy, reliability, security, accessibility, and responsiveness across different usage scenarios.
+
+## Functional Testing
+
+The following core functionalities were validated:
+
+* Carbon footprint calculation accuracy
+* Eco Rating classification logic
+* Personalized recommendation generation
+* Top contributor identification
+* Goal progress tracking
+* Historical data storage and retrieval
+* Carbon trend chart rendering and updates
+
+## Input Validation Testing
+
+To improve reliability and prevent invalid calculations, CarbonCut validates user inputs before processing.
+
+Tested scenarios include:
+
+* Negative distance values
+* Negative AC usage values
+* Non-numeric inputs
+* Excessively large travel distances
+* AC usage exceeding realistic daily limits
+* Invalid goal values
+
+All invalid inputs are rejected with appropriate user feedback.
+
+## Boundary Testing
+
+The application was tested against edge-case values to ensure stable behavior.
+
+| Scenario            | Result |
+| ------------------- | ------ |
+| Distance = 0 km     | ✅ Pass |
+| Distance = 1000 km  | ✅ Pass |
+| AC Usage = 0 hours  | ✅ Pass |
+| AC Usage = 24 hours | ✅ Pass |
+| Goal = 0            | ✅ Pass |
+
+## Data Persistence Testing
+
+CarbonCut uses Local Storage to maintain user history.
+
+Verified functionality:
+
+* Saving carbon score history
+* Retrieving previous calculations
+* Updating historical records
+* Limiting stored entries for performance optimization
+
+Status: ✅ Pass
+
+## Chart & Analytics Testing
+
+The Carbon Score Trend Chart was tested to ensure:
+
+* Correct data plotting
+* Dynamic updates after calculations
+* Historical trend visualization
+* Stable rendering across multiple entries
+
+Status: ✅ Pass
+
+## Accessibility Testing
+
+Accessibility improvements were implemented and verified:
+
+* Proper form labels
+* Keyboard navigation support
+* Visible focus indicators
+* Semantic HTML structure
+* Responsive design for different screen sizes
+* Improved color contrast for readability
+
+Status: ✅ Pass
+
+## Security Testing
+
+CarbonCut includes basic client-side security measures:
+
+* Input sanitization through validation
+* Safe numeric parsing
+* Local Storage error handling
+* Prevention of invalid calculations
+* Controlled data persistence
+
+Status: ✅ Pass
+
+## Responsive Design Testing
+
+The application was tested across multiple viewport sizes:
+
+| Device Type | Status |
+| ----------- | ------ |
+| Desktop     | ✅ Pass |
+| Tablet      | ✅ Pass |
+| Mobile      | ✅ Pass |
+
+The dashboard automatically adapts between landscape and stacked layouts for optimal usability.
+
+## Browser Compatibility
+
+Tested on modern browsers:
+
+* Google Chrome ✅
+* Microsoft Edge ✅
+* Mozilla Firefox ✅
+
+## Testing Summary
+
+| Area                     | Status |
+| ------------------------ | ------ |
+| Carbon Calculation Logic | ✅      |
+| Recommendation Engine    | ✅      |
+| Goal Tracking            | ✅      |
+| History Tracking         | ✅      |
+| Chart Visualization      | ✅      |
+| Input Validation         | ✅      |
+| Accessibility            | ✅      |
+| Security                 | ✅      |
+| Responsive Design        | ✅      |
+| Browser Compatibility    | ✅      |
+
+
+### Conclusion
+
+CarbonCut successfully passed functional, validation, security, accessibility, and responsiveness testing. The platform reliably calculates carbon footprint scores, provides personalized sustainability insights, tracks user progress, visualizes trends, and maintains a consistent user experience across devices and browsers.
+
+
 # 🌍 Real-World Applications
 
 CarbonCut can be used for:
