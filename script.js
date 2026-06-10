@@ -369,12 +369,6 @@ function updateChart() {
         history = [];
     }
 
-    const labels =
-        history.map(item => item.date);
-
-    const scores =
-        history.map(item => item.score);
-
     const canvas =
         document.getElementById("carbonChart");
 
@@ -383,15 +377,63 @@ function updateChart() {
     const ctx =
         canvas.getContext("2d");
 
-    if (
-        window.carbonChartInstance
-    ) {
+    // Destroy previous chart
+
+    if (window.carbonChartInstance) {
 
         window.carbonChartInstance.destroy();
     }
 
-    window.carbonChartInstance =
+    // Empty state
 
+    if (history.length === 0) {
+
+        window.carbonChartInstance =
+            new Chart(ctx, {
+
+                type: "line",
+
+                data: {
+
+                    labels: ["No Data"],
+
+                    datasets: [
+
+                        {
+                            label: "Carbon Score Trend",
+
+                            data: [0],
+
+                            borderColor: "#34D399",
+
+                            backgroundColor:
+                                "rgba(52,211,153,0.15)",
+
+                            fill: true,
+
+                            tension: 0.4
+                        }
+                    ]
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false
+                }
+            });
+
+        return;
+    }
+
+    const labels =
+        history.map(item => item.date);
+
+    const scores =
+        history.map(item => item.score);
+
+    window.carbonChartInstance =
         new Chart(ctx, {
 
             type: "line",
@@ -418,7 +460,13 @@ function updateChart() {
 
                         fill: true,
 
-                        tension: 0.4
+                        tension: 0.4,
+
+                        pointRadius: 5,
+
+                        pointHoverRadius: 7,
+
+                        borderWidth: 3
                     }
                 ]
             },
@@ -429,25 +477,62 @@ function updateChart() {
 
                 maintainAspectRatio: false,
 
+                animation: {
+
+                    duration: 1200
+                },
+
                 plugins: {
 
                     legend: {
 
-                        display: true
+                        labels: {
+
+                            color: "#FFFFFF"
+                        }
+                    },
+
+                    tooltip: {
+
+                        enabled: true
                     }
                 },
 
                 scales: {
 
+                    x: {
+
+                        ticks: {
+
+                            color: "#B8D8C0"
+                        },
+
+                        grid: {
+
+                            color:
+                                "rgba(255,255,255,0.08)"
+                        }
+                    },
+
                     y: {
 
-                        beginAtZero: true
+                        beginAtZero: true,
+
+                        ticks: {
+
+                            color: "#B8D8C0"
+                        },
+
+                        grid: {
+
+                            color:
+                                "rgba(255,255,255,0.08)"
+                        }
                     }
                 }
             }
         });
 }
-
 // =========================
 // Load Existing History
 // =========================
