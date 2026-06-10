@@ -45,6 +45,17 @@ The platform empowers users to:
 
 ---
 
+# 📌 Assumptions Made
+
+- Carbon impact values are simplified estimates and are intended for awareness purposes.
+- Users provide accurate information regarding transportation, energy usage, and dietary habits.
+- Transportation, AC usage, and diet are treated as the primary contributors to an individual's carbon footprint within the scope of this project.
+- Recommendations are generated using rule-based logic rather than real-time environmental datasets.
+- The application serves as an educational sustainability tool and not as an official carbon accounting system.
+
+---
+
+
 # 🧠 Approach and Logic
 
 CarbonCut follows a **rule-based decision-making approach**.
@@ -69,68 +80,16 @@ The recommendation engine adapts its suggestions according to user inputs, ensur
 
 ---
 
-# ⚙️ How the Solution Works
-
-### Step 1: User Input
-
-The user enters:
-
-- Transportation method
-- Daily travel distance
-- AC usage hours
-- Diet preference
-
-### Step 2: Carbon Footprint Calculation
-
-The system processes the inputs using predefined environmental impact rules and calculates a carbon footprint score.
-
-### Step 3: Impact Assessment
-
-Based on the calculated score, the user is categorized into one of the following groups:
-
-- 🌟 Eco Friendly
-- ⚠️ Moderate Impact
-- 🚨 High Impact
-
-### Step 4: Contributor Analysis
-
-The application identifies which factor contributes most to the user's carbon footprint.
-
-### Step 5: Recommendation Generation
-
-Personalized recommendations are generated to help reduce emissions.
-
-### Step 6: Result Display
-
-The user receives:
-
-- Carbon Score
-- Eco Rating
-- Top Contributor Analysis
-- Personalized Sustainability Recommendations
-
----
-
-# 📌 Assumptions Made
-
-- Carbon impact values are simplified estimates and are intended for awareness purposes.
-- Users provide accurate information regarding transportation, energy usage, and dietary habits.
-- Transportation, AC usage, and diet are treated as the primary contributors to an individual's carbon footprint within the scope of this project.
-- Recommendations are generated using rule-based logic rather than real-time environmental datasets.
-- The application serves as an educational sustainability tool and not as an official carbon accounting system.
-
----
-
 # 🚀 Features
 
 ## 🌍 Carbon Footprint Estimation
 
 Users provide:
 
-- Daily transportation method
-- Travel distance
-- Air conditioner usage
-- Dietary habits
+* Daily transportation method
+* Travel distance
+* Air conditioner usage
+* Dietary habits
 
 The system calculates a carbon footprint score based on the provided information.
 
@@ -140,9 +99,9 @@ The system calculates a carbon footprint score based on the provided information
 
 Based on the calculated score, users are classified into:
 
-- 🌟 Eco Friendly
-- ⚠️ Moderate Impact
-- 🚨 High Impact
+* 🌟 Eco Friendly
+* ⚠️ Moderate Impact
+* 🚨 High Impact
 
 This provides a quick understanding of their environmental impact.
 
@@ -154,10 +113,10 @@ Recommendations are dynamically generated based on user behavior.
 
 Examples include:
 
-- Use public transportation more often
-- Reduce AC usage
-- Introduce vegetarian meals into your routine
-- Consider eco-friendly travel alternatives
+* Use public transportation more often
+* Reduce AC usage
+* Introduce vegetarian meals into your routine
+* Consider eco-friendly travel alternatives
 
 ---
 
@@ -167,62 +126,107 @@ CarbonCut identifies the largest contributor to the user's carbon footprint, hel
 
 ---
 
-# 📂 Project Structure
+## 📅 Monthly Carbon Tracking
 
-```text
-carboncut/
+Every carbon footprint calculation is automatically saved using browser Local Storage.
 
-├── index.html
-├── style.css
-├── script.js
-├── LICENSE
-└── README.md
-```
+Users can:
+
+* Track previous carbon scores
+* Monitor progress over time
+* Review recent sustainability performance
 
 ---
 
-# 🛠️ Tech Stack
+## 📈 Carbon Score Trend Dashboard
 
-| Category | Technology |
-|-----------|------------|
-| Frontend | HTML5 |
-| Styling | CSS3 |
-| Logic | JavaScript |
-| Deployment | Netlify |
-| Version Control | Git & GitHub |
+CarbonCut visualizes historical carbon scores using interactive charts powered by Chart.js.
 
----
+This helps users:
 
-# 🧩 Decision Logic
-
-## Transportation Impact
-
-| Mode | Impact |
-|--------|--------|
-| Car | High |
-| Bus | Medium |
-| Metro | Low |
-| Bike | Minimal |
+* Identify trends in their environmental impact
+* Monitor improvements over time
+* Understand the effectiveness of lifestyle changes
 
 ---
 
-## Electricity Impact
+## 🎯 Carbon Reduction Goals
 
-Higher daily AC usage increases the carbon footprint score.
+Users can set a target carbon score and track progress toward achieving it.
 
----
+Features include:
 
-## Dietary Impact
-
-| Diet Type | Impact |
-|------------|---------|
-| Vegetarian | Low |
-| Mixed | Medium |
-| Meat Heavy | High |
+* Goal setting
+* Goal achievement tracking
+* Progress visualization through an animated progress bar
 
 ---
 
-The system combines these factors to generate personalized sustainability recommendations.
+## 💾 Local Storage Support
+
+CarbonCut stores user history directly in the browser.
+
+Benefits include:
+
+* Persistent tracking across sessions
+* No database required
+* Lightweight and privacy-friendly experience
+
+---
+
+# ⚙️ How the Solution Works
+
+### Step 1: User Input
+
+The user enters:
+
+* Transportation method
+* Daily travel distance
+* AC usage hours
+* Diet preference
+* Target carbon score (optional)
+
+### Step 2: Carbon Footprint Calculation
+
+The system processes the inputs using predefined environmental impact rules and calculates a carbon footprint score.
+
+### Step 3: Impact Assessment
+
+Based on the calculated score, the user is categorized into one of the following groups:
+
+* 🌟 Eco Friendly
+* ⚠️ Moderate Impact
+* 🚨 High Impact
+
+### Step 4: Contributor Analysis
+
+The application identifies which factor contributes most to the user's carbon footprint.
+
+### Step 5: Recommendation Generation
+
+Personalized recommendations are generated to help reduce emissions.
+
+### Step 6: Goal Progress Tracking
+
+If a goal is provided, CarbonCut evaluates progress and displays a visual progress bar.
+
+### Step 7: History & Analytics
+
+The carbon score is saved locally and displayed in:
+
+* Recent History Dashboard
+* Carbon Trend Chart
+
+### Step 8: Result Display
+
+The user receives:
+
+* Carbon Score
+* Eco Rating
+* Top Contributor Analysis
+* Personalized Recommendations
+* Goal Progress
+* Historical Tracking Data
 
 ---
 
@@ -230,37 +234,41 @@ The system combines these factors to generate personalized sustainability recomm
 
 CarbonCut can be used for:
 
-- Environmental awareness campaigns
-- Sustainability education programs
-- Personal carbon tracking
-- Community sustainability initiatives
-- Corporate ESG awareness workshops
+* Environmental awareness campaigns
+* Sustainability education programs
+* Personal carbon tracking
+* Community sustainability initiatives
+* Corporate ESG awareness workshops
+* Carbon reduction challenges
+* Eco-friendly habit tracking
 
 ---
 
-
 # 🎯 Challenge Requirements Covered
 
-| Requirement | Status |
-|-------------|---------|
-| Smart Dynamic Assistant | ✅ |
-| Context-Based Decision Making | ✅ |
-| Personalized Insights | ✅ |
-| Practical Real-World Usability | ✅ |
-| Clean & Maintainable Code | ✅ |
+| Requirement                    | Status |
+| ------------------------------ | ------ |
+| Smart Dynamic Assistant        | ✅      |
+| Context-Based Decision Making  | ✅      |
+| Personalized Insights          | ✅      |
+| Carbon Tracking                | ✅      |
+| Goal Monitoring                | ✅      |
+| Data Visualization             | ✅      |
+| Practical Real-World Usability | ✅      |
+| Clean & Maintainable Code      | ✅      |
 
 ---
 
 # 🔮 Future Improvements
 
-- [ ] Monthly carbon tracking
-- [ ] Local storage support for user history
-- [ ] Interactive charts and analytics
-- [ ] Carbon reduction goals
-- [ ] AI-powered sustainability coaching
-- [ ] Household energy monitoring
-- [ ] Mobile-responsive dashboard
-
+* [ ] AI-powered sustainability coaching
+* [ ] Household energy monitoring
+* [ ] Weekly and monthly sustainability reports
+* [ ] Carbon footprint comparison analytics
+* [ ] User accounts and cloud storage
+* [ ] Community challenges and leaderboards
+* [ ] Advanced emission calculation models
+* [ ] Mobile-responsive dashboard enhancements
 
 ---
 
