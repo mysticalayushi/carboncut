@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CarbonCut</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,71 +13,108 @@
 
     <div class="container">
 
-        <h1>🌱 CarbonCut</h1>
+        <!-- LEFT PANEL -->
 
-        <p class="subtitle">
-            Understand your carbon footprint and get personalized sustainability recommendations.
-        </p>
+        <div class="left-panel">
 
-        <label for="transport">Transport Method</label>
-        <select id="transport">
-            <option value="car">Car</option>
-            <option value="bus">Bus</option>
-            <option value="metro">Metro</option>
-            <option value="bike">Bike</option>
-        </select>
+            <h1>🌱 CarbonCut</h1>
 
-        <label for="distance">Daily Distance (km)</label>
-        <input
-            type="number"
-            id="distance"
-            placeholder="Enter distance travelled per day"
-        >
+            <p class="subtitle">
+                Understand your carbon footprint and get personalized sustainability recommendations.
+            </p>
 
-        <label for="ac">AC Usage (hours/day)</label>
-        <input
-            type="number"
-            id="ac"
-            placeholder="Enter AC usage hours"
-        >
+            <label for="transport">
+                🚗 Transport Method
+            </label>
 
-        <label for="diet">Diet Type</label>
-        <select id="diet">
-            <option value="veg">Vegetarian</option>
-            <option value="mixed">Mixed</option>
-            <option value="meat">Meat Heavy</option>
-        </select>
+            <select id="transport">
+                <option value="car">Car</option>
+                <option value="bus">Bus</option>
+                <option value="metro">Metro</option>
+                <option value="bike">Bike</option>
+            </select>
 
-        <label for="goal">Target Carbon Score</label>
-        <input
-            type="number"
-            id="goal"
-            placeholder="Example: 50"
-        >
+            <label for="distance">
+                📍 Daily Distance (km)
+            </label>
 
-        <button onclick="calculateFootprint()">
-            Calculate Carbon Footprint
-        </button>
+            <input
+                type="number"
+                id="distance"
+                placeholder="Enter distance travelled per day"
+            >
 
-        <div id="result"></div>
+            <label for="ac">
+                ❄️ AC Usage (hours/day)
+            </label>
 
-        <!-- Carbon Trend Chart -->
+            <input
+                type="number"
+                id="ac"
+                placeholder="Enter AC usage hours"
+            >
 
-        <div class="chart-container">
+            <label for="diet">
+                🥗 Diet Type
+            </label>
 
-            <h3>📈 Carbon Score Trend</h3>
+            <select id="diet">
+                <option value="veg">Vegetarian</option>
+                <option value="mixed">Mixed</option>
+                <option value="meat">Meat Heavy</option>
+            </select>
 
-            <canvas id="carbonChart"></canvas>
+            <label for="goal">
+                🎯 Target Carbon Score
+            </label>
+
+            <input
+                type="number"
+                id="goal"
+                placeholder="Example: 50"
+            >
+
+            <button onclick="calculateFootprint()">
+                Calculate Carbon Footprint
+            </button>
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+
+        <div class="right-panel">
+
+            <!-- Results -->
+
+            <div id="result">
+
+                <h3>📊 Results</h3>
+
+                <p>
+                    Fill the form and calculate your carbon footprint.
+                </p>
+
+            </div>
+
+            <!-- Chart -->
+
+            <div class="chart-container">
+
+                <h3>📈 Carbon Score Trend</h3>
+
+                <canvas id="carbonChart"></canvas>
+
+            </div>
 
         </div>
 
     </div>
 
-    <!-- Chart.js Library -->
+    <!-- Chart.js -->
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Your Script -->
+    <!-- Script -->
 
     <script src="script.js"></script>
 
