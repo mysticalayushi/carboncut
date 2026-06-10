@@ -20,15 +20,8 @@
 
 body {
     min-height: 100vh;
-
     font-family: Arial, sans-serif;
-
-    background: linear-gradient(
-        135deg,
-        #5fd66c,
-        #0b4f2f
-    );
-
+    background: linear-gradient(135deg, #5fd66c, #0b4f2f);
     padding: 30px;
 }
 
@@ -38,15 +31,10 @@ body {
 
 .container {
     max-width: 1400px;
-
     margin: auto;
-
     display: grid;
-
     grid-template-columns: 450px 1fr;
-
     gap: 25px;
-
     align-items: start;
 }
 
@@ -56,15 +44,10 @@ body {
 
 .left-panel {
     background: var(--bg-dark);
-
     border-radius: 18px;
-
     padding: 25px;
-
     color: var(--text-light);
-
-    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
     position: sticky;
     top: 20px;
 }
@@ -75,11 +58,8 @@ body {
 
 .right-panel {
     display: flex;
-
     flex-direction: column;
-
     gap: 20px;
-
     min-width: 0;
 }
 
@@ -90,14 +70,10 @@ body {
 #result,
 .chart-container {
     background: var(--bg-dark);
-
     border-radius: 18px;
-
     padding: 25px;
-
     color: white;
-
-    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* =========================
@@ -106,17 +82,13 @@ body {
 
 h1 {
     text-align: center;
-
     color: var(--accent-green);
-
     margin-bottom: 10px;
 }
 
 .subtitle {
     text-align: center;
-
     color: var(--text-muted);
-
     margin-bottom: 25px;
 }
 
@@ -132,30 +104,20 @@ h1 {
 
 label {
     display: block;
-
     margin-top: 15px;
-
     margin-bottom: 5px;
-
     font-weight: bold;
-
     color: white;
 }
 
 input,
 select {
     width: 100%;
-
     padding: 12px;
-
     border: none;
-
     border-radius: 10px;
-
     background: #d9ffe0;
-
     color: #021B16;
-
     font-size: 14px;
 }
 
@@ -167,11 +129,8 @@ input:focus,
 select:focus,
 button:focus {
     outline: 3px solid #87F09B;
-
     outline-offset: 3px;
-
-    box-shadow:
-        0 0 10px rgba(135, 240, 155, 0.5);
+    box-shadow: 0 0 10px rgba(135, 240, 155, 0.5);
 }
 
 /* =========================
@@ -180,27 +139,16 @@ button:focus {
 
 button {
     width: 100%;
-
     margin-top: 25px;
-
     padding: 14px;
-
     background: var(--accent-green-dark);
-
     color: var(--bg-dark);
-
     border: none;
-
     border-radius: 10px;
-
     font-size: 16px;
-
     font-weight: bold;
-
     cursor: pointer;
-
     transition: 0.3s;
-
     min-height: 48px;
 }
 
@@ -224,45 +172,41 @@ button:hover {
     margin-bottom: 8px;
 }
 
+.coach-box,
+.challenge-box {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #0d3027;
+    color: white;
+    line-height: 1.6;
+    border-left: 4px solid #87F09B;
+}
+
 /* =========================
    GOAL PROGRESS
 ========================= */
 
 .goal-container {
     margin-top: 20px;
-
     background: #0d3027;
-
     padding: 15px;
-
     border-radius: 10px;
 }
 
 .progress-bar {
     width: 100%;
-
     height: 20px;
-
-    background: rgba(255,255,255,0.15);
-
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 20px;
-
     overflow: hidden;
-
     margin-top: 10px;
-
     margin-bottom: 10px;
 }
 
 .progress-fill {
     height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        #87F09B,
-        #34D399
-    );
-
+    background: linear-gradient(90deg, #87F09B, #34D399);
     transition: width 1s ease;
 }
 
@@ -285,17 +229,13 @@ button:hover {
 
 .history-box {
     margin-top: 20px;
-
     background: #0d3027;
-
     padding: 15px;
-
     border-radius: 10px;
 }
 
 .history-box h4 {
     color: var(--accent-green);
-
     margin-bottom: 10px;
 }
 
