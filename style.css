@@ -320,3 +320,20 @@ canvas {
         padding: 15px;
     }
 }
+
+input:focus,
+select:focus,
+button:focus {
+
+    outline: 3px solid #87F09B;
+
+    outline-offset: 3px;
+
+    box-shadow:
+        0 0 10px rgba(135, 240, 155, 0.5);
+}
+
+button {
+
+    min-height: 48px;
+}

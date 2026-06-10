@@ -1,3 +1,36 @@
+// =========================
+// Input Validation
+// =========================
+
+function validateInputs(distance, ac, goal) {
+
+    if (isNaN(distance) || isNaN(ac)) {
+        return "Please enter valid numbers.";
+    }
+
+    if (distance < 0 || ac < 0) {
+        return "Values cannot be negative.";
+    }
+
+    if (distance > 1000) {
+        return "Distance must be below 1000 km.";
+    }
+
+    if (ac > 24) {
+        return "AC usage cannot exceed 24 hours per day.";
+    }
+
+    if (goal < 0) {
+        return "Goal cannot be negative.";
+    }
+
+    return null;
+}
+
+// =========================
+// Main Calculator
+// =========================
+
 function calculateFootprint() {
 
     const transport =
@@ -15,16 +48,32 @@ function calculateFootprint() {
     const goal =
         Number(document.getElementById("goal").value);
 
+    // Validation
+
+    const error =
+        validateInputs(distance, ac, goal);
+
+    if (error) {
+
+        alert(error);
+
+        return;
+    }
+
     let carbonScore = 0;
+
     let recommendations = [];
 
+    // =========================
     // Transportation Impact
+    // =========================
 
     let transportImpact = 0;
 
     if (transport === "car") {
 
         transportImpact = distance * 2;
+
         carbonScore += transportImpact;
 
         recommendations.push(
@@ -34,11 +83,13 @@ function calculateFootprint() {
     } else if (transport === "bus") {
 
         transportImpact = distance * 1;
+
         carbonScore += transportImpact;
 
     } else if (transport === "metro") {
 
         transportImpact = distance * 0.5;
+
         carbonScore += transportImpact;
 
     } else {
@@ -46,7 +97,9 @@ function calculateFootprint() {
         transportImpact = 0;
     }
 
+    // =========================
     // AC Impact
+    // =========================
 
     const acImpact = ac * 3;
 
@@ -59,13 +112,16 @@ function calculateFootprint() {
         );
     }
 
+    // =========================
     // Diet Impact
+    // =========================
 
     let dietImpact = 0;
 
     if (diet === "meat") {
 
         dietImpact = 20;
+
         carbonScore += dietImpact;
 
         recommendations.push(
@@ -75,10 +131,20 @@ function calculateFootprint() {
     } else if (diet === "mixed") {
 
         dietImpact = 10;
+
         carbonScore += dietImpact;
     }
 
+    // =========================
+    // Round Score
+    // =========================
+
+    carbonScore =
+        Number(carbonScore.toFixed(1));
+
+    // =========================
     // Eco Rating
+    // =========================
 
     let rating = "";
 
@@ -95,14 +161,18 @@ function calculateFootprint() {
         rating = "🚨 High Impact";
     }
 
+    // =========================
     // Top Contributor
+    // =========================
 
     let contributor = "Transportation";
+
     let highestImpact = transportImpact;
 
     if (acImpact > highestImpact) {
 
         contributor = "Electricity Usage";
+
         highestImpact = acImpact;
     }
 
@@ -111,22 +181,28 @@ function calculateFootprint() {
         contributor = "Diet";
     }
 
+    // =========================
     // Goal Tracking
+    // =========================
 
     let goalMessage = "";
+
     let progressPercentage = 0;
 
     if (goal > 0) {
 
         progressPercentage =
-            Math.min((goal / carbonScore) * 100, 100);
+            Math.min(
+                (goal / carbonScore) * 100,
+                100
+            );
 
         if (carbonScore <= goal) {
 
+            progressPercentage = 100;
+
             goalMessage =
                 "🎉 Congratulations! Goal achieved.";
-
-            progressPercentage = 100;
 
         } else {
 
@@ -135,7 +211,9 @@ function calculateFootprint() {
         }
     }
 
+    // =========================
     // Default Recommendation
+    // =========================
 
     if (recommendations.length === 0) {
 
@@ -144,46 +222,83 @@ function calculateFootprint() {
         );
     }
 
-    // Save History
+    // =========================
+    // Safe Local Storage
+    // =========================
 
-    let history =
-        JSON.parse(localStorage.getItem("carbonHistory")) || [];
+    let history = [];
+
+    try {
+
+        history =
+            JSON.parse(
+                localStorage.getItem("carbonHistory")
+            ) || [];
+
+    } catch {
+
+        history = [];
+    }
 
     history.push({
-        date: new Date().toLocaleDateString(),
-        score: carbonScore
+
+        date:
+            new Date().toLocaleDateString(),
+
+        score:
+            carbonScore
     });
+
+    // Keep only latest 20 entries
+
+    if (history.length > 20) {
+
+        history.shift();
+    }
 
     localStorage.setItem(
         "carbonHistory",
         JSON.stringify(history)
     );
 
-    // Generate History Dashboard
+    // =========================
+    // History Dashboard
+    // =========================
 
     const historyHTML =
+
         history
             .slice(-5)
             .reverse()
             .map(item =>
-                `<li>${item.date} — ${item.score.toFixed(1)}</li>`
+
+                `<li>${item.date} — ${item.score}</li>`
+
             )
             .join("");
 
+    // =========================
     // Display Results
+    // =========================
 
     document.getElementById("result").innerHTML = `
 
         <h3>📊 Results</h3>
 
-        <p><strong>Carbon Score:</strong>
-        ${carbonScore.toFixed(1)}</p>
+        <p>
+            <strong>Carbon Score:</strong>
+            ${carbonScore}
+        </p>
 
-        <p><strong>Eco Rating:</strong>
-        ${rating}</p>
+        <p>
+            <strong>Eco Rating:</strong>
+            ${rating}
+        </p>
 
-        <p><strong>Top Contributor:</strong>
-        ${contributor}</p>
+        <p>
+            <strong>Top Contributor:</strong>
+            ${contributor}
+        </p>
 
         ${goal > 0 ? `
 
@@ -218,26 +333,41 @@ function calculateFootprint() {
 
         </ul>
 
-        <h4>📅 Recent History</h4>
+        <div class="history-box">
 
-        <ul>
+            <h4>📅 Recent History</h4>
 
-            ${historyHTML}
+            <ul>
 
-        </ul>
+                ${historyHTML}
+
+            </ul>
+
+        </div>
     `;
 
     updateChart();
 }
 
+// =========================
 // Chart Function
+// =========================
 
 function updateChart() {
 
-    const history =
-        JSON.parse(
-            localStorage.getItem("carbonHistory")
-        ) || [];
+    let history = [];
+
+    try {
+
+        history =
+            JSON.parse(
+                localStorage.getItem("carbonHistory")
+            ) || [];
+
+    } catch {
+
+        history = [];
+    }
 
     const labels =
         history.map(item => item.date);
@@ -250,14 +380,18 @@ function updateChart() {
 
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx =
+        canvas.getContext("2d");
 
-    if (window.carbonChartInstance) {
+    if (
+        window.carbonChartInstance
+    ) {
 
         window.carbonChartInstance.destroy();
     }
 
     window.carbonChartInstance =
+
         new Chart(ctx, {
 
             type: "line",
@@ -266,26 +400,34 @@ function updateChart() {
 
                 labels: labels,
 
-                datasets: [{
+                datasets: [
 
-                    label: "Carbon Score Trend",
+                    {
 
-                    data: scores,
+                        label:
+                            "Carbon Score Trend",
 
-                    borderColor: "#2e7d32",
+                        data:
+                            scores,
 
-                    backgroundColor:
-                        "rgba(46,125,50,0.2)",
+                        borderColor:
+                            "#34D399",
 
-                    fill: true,
+                        backgroundColor:
+                            "rgba(52,211,153,0.2)",
 
-                    tension: 0.4
-                }]
+                        fill: true,
+
+                        tension: 0.4
+                    }
+                ]
             },
 
             options: {
 
                 responsive: true,
+
+                maintainAspectRatio: false,
 
                 plugins: {
 
@@ -306,7 +448,9 @@ function updateChart() {
         });
 }
 
-// Load Chart on Startup
+// =========================
+// Load Existing History
+// =========================
 
 window.onload = function () {
 

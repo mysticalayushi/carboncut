@@ -2,16 +2,26 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="CarbonCut helps users calculate, track, and reduce their carbon footprint through personalized sustainability recommendations.">
+
     <title>CarbonCut</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <div class="container">
+    <main class="container">
 
         <!-- LEFT PANEL -->
 
@@ -23,16 +33,24 @@
                 Understand your carbon footprint and get personalized sustainability recommendations.
             </p>
 
+            <!-- Transport -->
+
             <label for="transport">
                 🚗 Transport Method
             </label>
 
-            <select id="transport">
+            <select
+                id="transport"
+                aria-label="Transportation method">
+
                 <option value="car">Car</option>
                 <option value="bus">Bus</option>
                 <option value="metro">Metro</option>
                 <option value="bike">Bike</option>
+
             </select>
+
+            <!-- Distance -->
 
             <label for="distance">
                 📍 Daily Distance (km)
@@ -41,8 +59,10 @@
             <input
                 type="number"
                 id="distance"
-                placeholder="Enter distance travelled per day"
-            >
+                aria-label="Daily travel distance in kilometers"
+                placeholder="Enter distance travelled per day">
+
+            <!-- AC -->
 
             <label for="ac">
                 ❄️ AC Usage (hours/day)
@@ -51,18 +71,26 @@
             <input
                 type="number"
                 id="ac"
-                placeholder="Enter AC usage hours"
-            >
+                aria-label="Air conditioner usage in hours per day"
+                placeholder="Enter AC usage hours">
+
+            <!-- Diet -->
 
             <label for="diet">
                 🥗 Diet Type
             </label>
 
-            <select id="diet">
+            <select
+                id="diet"
+                aria-label="Diet type">
+
                 <option value="veg">Vegetarian</option>
                 <option value="mixed">Mixed</option>
                 <option value="meat">Meat Heavy</option>
+
             </select>
+
+            <!-- Goal -->
 
             <label for="goal">
                 🎯 Target Carbon Score
@@ -71,11 +99,17 @@
             <input
                 type="number"
                 id="goal"
-                placeholder="Example: 50"
-            >
+                aria-label="Target carbon score"
+                placeholder="Example: 50">
 
-            <button onclick="calculateFootprint()">
+            <!-- Button -->
+
+            <button
+                onclick="calculateFootprint()"
+                aria-label="Calculate Carbon Footprint">
+
                 Calculate Carbon Footprint
+
             </button>
 
         </div>
@@ -86,7 +120,9 @@
 
             <!-- Results -->
 
-            <div id="result">
+            <div
+                id="result"
+                aria-live="polite">
 
                 <h3>📊 Results</h3>
 
@@ -102,19 +138,22 @@
 
                 <h3>📈 Carbon Score Trend</h3>
 
-                <canvas id="carbonChart"></canvas>
+                <canvas
+                    id="carbonChart"
+                    aria-label="Carbon score trend chart">
+                </canvas>
 
             </div>
 
         </div>
 
-    </div>
+    </main>
 
     <!-- Chart.js -->
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Script -->
+    <!-- Application Script -->
 
     <script src="script.js"></script>
 
